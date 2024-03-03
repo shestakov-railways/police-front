@@ -11,7 +11,7 @@ const isValidEmail = (value) => {
 };
 
 const isValidPhone = (value) => {
-    return value == "" ? true : isValidPhoneNumber(value) || "Invalid phone number, use format +[country code][phone number]";
+    return value == "" ? true : isValidPhoneNumber(value, 'UA') || "Invalid phone number, use format +[country code][phone number]";
 };
 
 export {

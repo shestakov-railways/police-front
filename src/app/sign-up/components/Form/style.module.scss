@@ -1,0 +1,30 @@
+.form{
+    text-align: left;
+    width: 352px;
+}
+
+.title{
+  color: #1e1f26;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+  margin: 0 0 24px;
+}
+
+.label{
+  color: #1e1f26;
+  font-size: 16px;
+  line-height: 18px;
+  margin: 0 0 12px;
+}
+
+.row{
+  & + &{
+    margin: 32px 0 0;
+  }
+}
+
+.button{
+  margin: 24px 0;
+  width: 100%;
+}

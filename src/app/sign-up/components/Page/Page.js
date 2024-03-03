@@ -1,3 +1,4 @@
+'use client'
 import styles from "./style.module.scss"
 import {
     Form
@@ -10,7 +11,7 @@ const Page = () => {
                 <div>
                     <div className={styles.image_wrapper}>
                         <img
-                            src="/sign-in.png"
+                            src="/sign-up.png"
                             className={styles.image}
                         />
                     </div>

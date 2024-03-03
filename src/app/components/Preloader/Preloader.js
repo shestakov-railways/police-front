@@ -23,7 +23,7 @@ const Preloader = ({
 
                 <div className={styles.text}>
                     <div>
-                        © 2024 Cyberpolice. All Rights Reserved.
+                        © { new Date().getFullYear() } Cyberpolice. All Rights Reserved.
                     </div>
                     <div>
                         Disclaimer: This website is owned and operated by the Cyberpolice department.
