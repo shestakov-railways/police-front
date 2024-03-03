@@ -8,6 +8,9 @@ import {
     Button
 } from "../../../components"
 import Link from 'next/link'
+import {
+    isValidEmail
+} from "../../../utils/validation"
 
 const Form = () => {
     const methods = useForm({
@@ -53,7 +56,9 @@ const Form = () => {
                                 className={styles.input}
                                 register={register}
                                 displayErrors={true}
+                                required={true}
                                 errors={errors}
+                                validation={(v) => isValidEmail(v)}
                             />
                         </div>
                     </div>
@@ -69,7 +74,11 @@ const Form = () => {
                                 className={styles.input}
                                 register={register}
                                 displayErrors={true}
+                                required={true}
                                 errors={errors}
+                                validation={(val) => {
+                                    return val.length < 9 ? "Password must be at least 9 characters long" : true;
+                                }}
                             />
                         </div>
                     </div>

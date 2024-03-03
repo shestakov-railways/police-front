@@ -15,7 +15,8 @@ const Input = ({
     wrapperClassName = "",
     className = "",
     autoComplete = "new-password",
-    defaultValue = ""
+    defaultValue = "",
+    maxLength = 255
 }) => {
     const validationObject = {};
 
@@ -34,6 +35,7 @@ const Input = ({
                     placeholder={placeholder}
                     className={`${styles.input} ${className ? className : ""}`}
                     autoComplete={autoComplete}
+                    maxLength={maxLength}
                     {...register(name, validationObject)}
                 />
 
