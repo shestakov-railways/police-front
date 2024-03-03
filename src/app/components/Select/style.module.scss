@@ -1,0 +1,93 @@
+.wrapper{
+    position: relative;
+    user-select: none;
+}
+
+.select{
+    display: none;
+}
+
+.select_box{
+    font-family: var(--font-opensans);
+    font-size: 16px;
+    line-height: 24px;
+    padding: 12px 52px 12px 16px;
+    border-radius: 4px;
+    border: 1px solid var(--light-version-border-grey, #D9E5E5);
+    background: url(/icon-chevrone-down-gray.svg) no-repeat calc(100% - 16px) 50%;
+    cursor: pointer;
+}
+
+.select_options{
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    min-width: 100%;
+    max-width: 350px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+    background: #fff;
+    border: 1px solid var(--light-version-border-grey, #D9E5E5);
+    padding: 12px 0 12px 8px;
+    border-radius: 4px;
+    z-index: 99;
+}
+
+.select_options.select_options_to_top{
+    top: initial;
+    bottom: calc(100% + 4px);
+}
+
+.select_options_list{
+    margin-right: 8px;
+    max-height: 225px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.select_options_list::-webkit-scrollbar-track{
+    border-radius: 2px;
+    background: #D9E5E5;
+    border-left: 1px solid var(--light-version-light-blue-background, #F2FFFF);
+    border-right: 1px solid var(--light-version-light-blue-background, #F2FFFF);
+    width: 3px;
+}
+
+.select_options_list::-webkit-scrollbar{
+	background: #F5F5F5;
+    width: 3px;
+}
+
+.select_options_list::-webkit-scrollbar-thumb{
+    background: var(--light-version-main-green, #12A47F);
+    border-radius: 2px;
+    width: 3px;
+}
+
+.select_options.active{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.select_option{
+    padding: 7px 12px;
+    margin-right: 6px;
+    cursor: pointer;
+    transition: background .3s;
+    border-radius: 6px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 22px;
+    font-family: var(--font-opensans);
+
+    & + &{
+        margin-top: 4px;
+    }
+
+    &:hover{
+        background: var(--light-version-light-blue-background, #F2FFFF);
+    }
+}

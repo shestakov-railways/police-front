@@ -1,0 +1,21 @@
+html,
+body{
+  color: #030303;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+  scroll-behavior: smooth;
+}
+
+img{
+  max-width: 100%;
+}
+
+a{
+  color: #000;
+
+  &:hover{
+    text-decoration: none;
+  }
+}

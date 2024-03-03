@@ -1,5 +1,4 @@
 'use client'
-import styles from "./page.module.css";
 import {
   Preloader
 } from "./components"
@@ -7,13 +6,18 @@ import {
   useState,
   useEffect
 } from "react"
+import {
+  Page
+} from "./sign-in/components"
 
 export default function Home() {
   const [showPreloader, setShowPreloader] = useState(true);
 
   useEffect(() => {
-    setShowPreloader(false);
-  }, 3000); 
+    setTimeout(() => {
+      setShowPreloader(false);
+    }, 3000);
+  }, []); 
   
   return (
     <>
@@ -21,9 +25,7 @@ export default function Home() {
         showPreloader={showPreloader}
       />
 
-      <main className={styles.main}>
-        123
-      </main>
+      <Page />
     </>
   );
 }

@@ -1,10 +1,10 @@
 import styles from "./style.module.scss"
 
 const Preloader = ({
-    showPreloader
+    showPreloader = true
 }) => {
     return (
-        <div className={styles.wrapper}>
+        <div className={`${styles.wrapper} ${!showPreloader ? styles.hidden : ""}`}>
             <div className={styles.inner}>
                 <div
                     className={styles.icon_wrapper}

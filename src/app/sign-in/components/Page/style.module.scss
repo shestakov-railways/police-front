@@ -1,0 +1,45 @@
+.wrapper{
+  background-color: #f0f0f0;
+  display: flex;
+  min-height: 100vh;
+}
+
+.column{
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.column_login{
+    background: #fff;
+}
+
+.title{
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    text-align: center;
+    margin: 0 0 24px;
+}
+
+.text{
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+}
+
+.logo{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 120px;
+}
+
+.image_wrapper{
+    width: 412px;
+    margin: 0 auto 46px;
+}
