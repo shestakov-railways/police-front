@@ -43,6 +43,7 @@ const Form = () => {
         register,
         handleSubmit,
         setValue,
+        control,
         formState: {
             errors
         }
@@ -104,6 +105,7 @@ const Form = () => {
                             errors={errors}
                             setStep={setStep}
                             setValue={setValue}
+                            control={control}
                         />
                     : null
                 }

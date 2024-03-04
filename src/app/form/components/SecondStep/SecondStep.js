@@ -24,14 +24,14 @@ const SecondStep = ({
 
     const handleFiles = (event) => {
         const newFiles = Array.from(event.target.files);
-        const filteredNewFiles = newFiles.filter(file => file.size <= 5242880);
+        const filteredNewFiles = newFiles.filter(file => file.size <= 1048576);
     
         const newUrls = filteredNewFiles.map(file => URL.createObjectURL(file));
     
         setImages(prevImages => {
             const updatedImages = [...prevImages, ...newUrls];
             
-            return updatedImages.slice(0, 20);
+            return updatedImages.slice(0, 10);
         });
     };
 
@@ -125,13 +125,13 @@ const SecondStep = ({
                             Upload your images here
                         </div>
                         <div className={styles.drop_zone_text}>
-                            Up to 20 images, 5MB each
+                            Up to 10 images, 1MB each
                         </div>
                     </div>
                     <input
                         type="file"
                         multiple
-                        accept="image/*"
+                        accept="image/png, image/jpeg, image/jpg"
                         className={styles.drop_zone_input}
                         onChange={handleFiles}
                     />
