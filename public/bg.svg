@@ -1,0 +1,54 @@
+<svg width="1440" height="1063" viewBox="0 0 1440 1063" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g filter="url(#filter0_f_1776_106198)">
+<circle cx="233.5" cy="290.5" r="233.5" fill="url(#paint0_angular_1776_106198)"/>
+</g>
+<g filter="url(#filter1_f_1776_106198)">
+<circle cx="1193.5" cy="629.5" r="233.5" fill="url(#paint1_angular_1776_106198)"/>
+</g>
+<rect opacity="0.05" y="40" width="1440" height="860" fill="url(#pattern0)"/>
+<circle cx="812" cy="282" r="30" fill="url(#pattern1)"/>
+<circle cx="449" cy="688" r="30" fill="url(#pattern2)"/>
+<circle cx="990" cy="598" r="30" fill="url(#pattern3)"/>
+<circle cx="887" cy="788" r="30" fill="url(#pattern4)"/>
+<circle cx="482" cy="240" r="30" fill="url(#pattern5)"/>
+<defs>
+<filter id="filter0_f_1776_106198" x="-200" y="-143" width="867" height="867" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_1776_106198"/>
+</filter>
+<filter id="filter1_f_1776_106198" x="760" y="196" width="867" height="867" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_1776_106198"/>
+</filter>
+<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="0.222222" height="0.27907">
+<use xlink:href="#image0_1776_106198" transform="scale(0.000694444 0.00116279)"/>
+</pattern>
+<pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image1_1776_106198" transform="scale(0.0153846)"/>
+</pattern>
+<pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image2_1776_106198" transform="scale(0.0153846)"/>
+</pattern>
+<pattern id="pattern3" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image3_1776_106198" transform="scale(0.005)"/>
+</pattern>
+<pattern id="pattern4" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image4_1776_106198" transform="scale(0.0153846)"/>
+</pattern>
+<pattern id="pattern5" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image5_1776_106198" transform="scale(0.0153846)"/>
+</pattern>
+<radialGradient id="paint0_angular_1776_106198" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(233.5 290.5) rotate(90) scale(233.5)">
+<stop stop-color="#B8C7FF" stop-opacity="0.8"/>
+<stop offset="0.5" stop-color="#417BFE" stop-opacity="0.8"/>
+<stop offset="1" stop-color="#8AF3EE" stop-opacity="0.8"/>
+</radialGradient>
+<radialGradient id="paint1_angular_1776_106198" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1193.5 629.5) rotate(90) scale(233.5)">
+<stop stop-color="#B8C7FF" stop-opacity="0.8"/>
+<stop offset="0.5" stop-color="#417BFE" stop-opacity="0.8"/>
+<stop offset="1" stop-color="#8AF3EE" stop-opacity="0.8"/>
+</radialGradient>
+</defs>
+</svg>
