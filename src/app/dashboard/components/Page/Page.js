@@ -1,7 +1,14 @@
+import {
+    Header,
+    Footer
+} from "../../../components"
+
 const Page = () => {
     return (
         <>
-            123
+            <Header />
+
+            <Footer />
         </>
     )
 }
