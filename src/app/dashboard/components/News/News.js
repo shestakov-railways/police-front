@@ -36,6 +36,7 @@ const News = () => {
                         <a
                             href="https://cyberpolice.gov.ua/"
                             target="blank"
+                            className={styles.button_link}
                         >
                             <Button
                                 className={styles.button}

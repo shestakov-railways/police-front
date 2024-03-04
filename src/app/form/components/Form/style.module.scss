@@ -50,7 +50,7 @@
     flex: 1;
 
     & + &{
-        margin: 0 0 0 50px;
+        margin: 0 0 0 40px;
     }
 }
 
@@ -215,4 +215,9 @@
 .criminal_row .label{
     font-size: 20px;
     font-weight: 700;
+}
+
+.add_button_wrapper{
+    display: flex;
+    justify-content: flex-end;
 }

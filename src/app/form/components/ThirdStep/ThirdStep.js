@@ -1,9 +1,13 @@
+'use client'
 import {
     Input,
     Select,
     Button
 } from "../../../components"
 import { useFieldArray } from "react-hook-form";
+import {
+    useEffect
+} from "react"
 
 const ThirdStep = ({
     register,
@@ -17,6 +21,12 @@ const ThirdStep = ({
         control,
         name: "criminals"
     });
+
+    useEffect(() => {
+        if(fields.length == 0){
+            append({});
+        }
+    }, []);
 
     return (
         <>
@@ -72,7 +82,7 @@ const ThirdStep = ({
                                     </div>
                                     <Input
                                         name={`criminals.${index}.first_name`}
-                                        placeholder="Enter your first name"
+                                        placeholder="Enter first name"
                                         className={styles.input}
                                         register={register}
                                         displayErrors={true}
@@ -88,7 +98,7 @@ const ThirdStep = ({
                                     </div>
                                     <Input
                                         name={`criminals.${index}.last_name`}
-                                        placeholder="Enter your last name"
+                                        placeholder="Enter last name"
                                         className={styles.input}
                                         register={register}
                                         displayErrors={true}
@@ -104,7 +114,7 @@ const ThirdStep = ({
                                     </div>
                                     <Input
                                         name={`criminals.${index}.middle_name`}
-                                        placeholder="Enter your middle name"
+                                        placeholder="Enter middle name"
                                         className={styles.input}
                                         register={register}
                                         displayErrors={true}
@@ -118,22 +128,26 @@ const ThirdStep = ({
                 ))
             }
 
-        <Button
-            onClick={() => append()}
-            style="outline"
-            className={styles.add_button}
-        >
             <div
-                className={styles.add_wrapper}
+                className={styles.add_button_wrapper}
             >
-                <img
-                    src="/icons/icon-add.svg"
-                    alt=""
-                    className={styles.add_icon}
-                />
+                <Button
+                    onClick={() => append()}
+                    style="outline"
+                    className={styles.add_button}
+                >
+                    <div
+                        className={styles.add_wrapper}
+                    >
+                        <img
+                            src="/icons/icon-add.svg"
+                            alt=""
+                            className={styles.add_icon}
+                        />
+                    </div>
+                    Add criminal
+                </Button>
             </div>
-            Add criminal
-        </Button>
         </>
     )
 }
