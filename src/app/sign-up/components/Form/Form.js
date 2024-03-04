@@ -16,8 +16,18 @@ import {
 import {
     signUp
 } from "../../../services/sign-up"
+import {
+    useState
+} from "react"
+import Cookie from 'js-cookie';
+import { useRouter } from 'next/navigation';
 
 const Form = () => {
+    const [error, setError] = useState(null);
+    const [disabled, setDisabled] = useState(false);
+
+    const router = useRouter();
+
     const methods = useForm({
         mode: "onChange",
         defaultValues: {
@@ -42,7 +52,19 @@ const Form = () => {
     });
 
     const onSubmit = async (data) => {
-        signUp(data);
+        setDisabled(true);
+        try{
+            const signUpData = await signUp(data);
+            setError(null); 
+        
+            localStorage.setItem('user', data);
+            Cookie.set('token', signUpData?.access_token, { expires: 3 });
+        
+            router.push('/dashboard');
+        }catch(e){
+            setError(e?.message);
+        }
+        setDisabled(false);
     }
 
     return (
@@ -136,11 +158,23 @@ const Form = () => {
                             />
                         </div>
                     </div>
+
+                    {
+                        error
+                        ?
+                        <div className={styles.row}>
+                            <div className="error-message">
+                                { error }
+                            </div>
+                        </div>
+                        : null
+                    }
                 </div>
 
                 <Button
                     type="submit"
                     className={styles.button}
+                    disabled={disabled}
                 >
                     Sign up
                 </Button>
