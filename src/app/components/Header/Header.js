@@ -75,7 +75,7 @@ const Header = () => {
                     </div>
 
                     <Button
-                        className={styles.logout}
+                        className={styles.button}
                         onClick={onLogOut}
                     >
                         Log out
