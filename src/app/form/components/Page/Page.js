@@ -2,6 +2,9 @@ import {
     Header,
     Footer
 } from "../../../components"
+import {
+    Form
+} from "../"
 
 const Page = () => {
     return (
@@ -9,7 +12,7 @@ const Page = () => {
             <Header />
 
             <main>
-                Form
+                <Form />
             </main>
 
             <Footer />
