@@ -16,6 +16,7 @@ import Cookie from 'js-cookie';
 import {
     FirstStep,
     SecondStep,
+    ThirdStep,
 } from "../"
 
 const Form = () => {
@@ -58,8 +59,8 @@ const Form = () => {
     }
 
     const onButtonClick = () => {
-        if (step === 1) {
-            setStep(2);
+        if (step != 3) {
+            setStep(step + 1);
         }else{
             handleSubmit(onSubmit)();
         }
@@ -73,21 +74,38 @@ const Form = () => {
                 autoComplete="off"
             >
                 {
-                    step === 1
+                    step == 1
                     ?
-                    <FirstStep
-                        register={register}
-                        styles={styles}
-                        errors={errors}
-                    />
-                    :
-                    <SecondStep
-                        register={register}
-                        styles={styles}
-                        errors={errors}
-                        setStep={setStep}
-                        setValue={setValue}
-                    />
+                        <FirstStep
+                            register={register}
+                            styles={styles}
+                            errors={errors}
+                        />
+                    : null
+                }
+                {
+                    step == 2
+                    ?
+                        <SecondStep
+                            register={register}
+                            styles={styles}
+                            errors={errors}
+                            setStep={setStep}
+                            setValue={setValue}
+                        />
+                    : null
+                }
+                {
+                    step == 3
+                    ?
+                        <ThirdStep
+                            register={register}
+                            styles={styles}
+                            errors={errors}
+                            setStep={setStep}
+                            setValue={setValue}
+                        />
+                    : null
                 }
                 
                 <div className={styles.button_wrapper}>
@@ -95,7 +113,7 @@ const Form = () => {
                         className={styles.button}
                         onClick={onButtonClick}
                     >
-                        { step === 1 ? "Proceed" : "Submit report" }
+                        { step != 3 ? "Proceed" : "Submit report" }
                     </Button>
                 </div>
             </form>
