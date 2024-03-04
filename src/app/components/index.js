@@ -7,5 +7,5 @@ export {
     Preloader,
     Button,
     Input,
-    Select,
+    Select
 }

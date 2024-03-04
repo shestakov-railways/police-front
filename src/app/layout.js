@@ -13,11 +13,16 @@ export const metadata = {
   description: "Cyberpolice description",
 };
 
+
+import { LayoutProvider } from './context'
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={poppins.className}>
-        {children}
+        <LayoutProvider>
+          { children }
+        </LayoutProvider>
       </body>
     </html>
   );

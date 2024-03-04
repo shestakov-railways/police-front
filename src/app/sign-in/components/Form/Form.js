@@ -11,8 +11,21 @@ import Link from 'next/link'
 import {
     isValidEmail
 } from "../../../utils/validation"
+import {
+    signIn
+} from "../../../services/sign-in"
+import { useRouter } from 'next/navigation';
+import {
+    useState
+} from "react"
+import Cookie from 'js-cookie';
 
 const Form = () => {
+    const [error, setError] = useState(null);
+    const [disabled, setDisabled] = useState(false);
+
+    const router = useRouter();
+
     const methods = useForm({
         mode: "onChange",
         defaultValues: {
@@ -30,7 +43,18 @@ const Form = () => {
     } = methods;
 
     const onSubmit = async (data) => {
-        console.log(JSON.stringify(data));
+        setDisabled(true);
+        try {
+            const loginData = await signIn(data);
+            setError(null);
+            
+            Cookie.set('token', loginData?.access_token, { expires: 3 });
+    
+            router.push('/dashboard');
+        } catch (error) {
+            setError(error?.message);
+        }
+        setDisabled(false);
     }
 
     return (
@@ -70,6 +94,7 @@ const Form = () => {
                         <div>
                             <Input
                                 name="password"
+                                type="password"
                                 placeholder="Enter your password"
                                 className={styles.input}
                                 register={register}
@@ -84,9 +109,22 @@ const Form = () => {
                     </div>
                 </div>
 
+                {
+                    error
+                    ?
+                    
+                    <div className={styles.row}>
+                        <div className="error-message">
+                            { error }
+                        </div>
+                    </div>
+                    : null
+                }
+
                 <Button
                     type="submit"
                     className={styles.button}
+                    disabled={disabled}
                 >
                     Log in
                 </Button>
