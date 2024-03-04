@@ -15,7 +15,7 @@ const Page = () => {
                         />
                     </div>
                     <div className={styles.title}>
-                        CyberPolice Department
+                        Cyber Police Department
                     </div>
                     <div className={styles.text}>
                         Unlock user account benefits

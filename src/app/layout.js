@@ -9,8 +9,8 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Cyberpolice",
-  description: "Cyberpolice description",
+  title: "Cyber Police",
+  description: "Cyber Police description",
 };
 
 

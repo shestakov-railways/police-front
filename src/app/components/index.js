@@ -5,6 +5,7 @@ import Select from "./Select/Select"
 import Header from "./Header/Header"
 import Footer from "./Footer/Footer"
 import Textarea from "./Textarea/Textarea"
+import NotFound from "./NotFound/NotFound"
 
 export {
     Preloader,
@@ -14,4 +15,5 @@ export {
     Header,
     Footer,
     Textarea,
+    NotFound,
 }

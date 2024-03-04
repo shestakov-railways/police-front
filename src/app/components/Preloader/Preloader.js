@@ -23,10 +23,10 @@ const Preloader = ({
 
                 <div className={styles.text}>
                     <div>
-                        © { new Date().getFullYear() } Cyberpolice. All Rights Reserved.
+                        © { new Date().getFullYear() } Cyber Police. All Rights Reserved.
                     </div>
                     <div>
-                        Disclaimer: This website is owned and operated by the Cyberpolice department.
+                        Disclaimer: This website is owned and operated by the Cyber Police department.
                     </div>
                 </div>
             </div>
