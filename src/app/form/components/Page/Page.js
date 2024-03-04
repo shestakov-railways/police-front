@@ -3,7 +3,7 @@ import {
     Footer
 } from "../../../components"
 import {
-    Form
+    Form,
 } from "../"
 
 const Page = () => {
@@ -15,7 +15,9 @@ const Page = () => {
                 <Form />
             </main>
 
-            <Footer />
+            <Footer
+                noBackground={true}
+            />
         </>
     )
 }
