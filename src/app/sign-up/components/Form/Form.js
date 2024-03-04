@@ -57,7 +57,7 @@ const Form = () => {
             const signUpData = await signUp(data);
             setError(null); 
         
-            localStorage.setItem('user', data);
+            localStorage.setItem('user', JSON.stringify(data));
             Cookie.set('token', signUpData?.access_token, { expires: 3 });
         
             router.push('/dashboard');

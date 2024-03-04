@@ -48,7 +48,7 @@ const Form = () => {
             const loginData = await signIn(data);
             setError(null); 
             
-            localStorage.setItem('user', data);
+            localStorage.setItem('user', JSON.stringify(data));
             Cookie.set('token', loginData?.access_token, { expires: 3 });
     
             router.push('/dashboard');
