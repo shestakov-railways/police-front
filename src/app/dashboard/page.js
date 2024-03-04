@@ -7,7 +7,7 @@ import { checkJWT } from "../services/auth"
 export default async function Dashboard() {
     const cookieStore = cookies()
     const token = cookieStore.get('token');
-    const isValid = await checkJWT(token?.value);
+    const isValid = await checkJWT(token?.value); 
     
     if(!token?.value || !isValid) return (<h1>Page not found</h1>);
 
