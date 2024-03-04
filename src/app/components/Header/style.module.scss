@@ -12,6 +12,18 @@
         min-height: 860px;
         z-index: -1;
     }
+
+    &:after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: url(/noize.png) no-repeat center/cover;
+        min-height: 860px;
+        z-index: -1;
+        opacity: .1;
+    }
 }
 
 .inner{
