@@ -52,7 +52,7 @@ const Header = () => {
                         href="/form"
                         className={`${styles.navigation_item} ${pathname === "/form" ? styles.navigation_item_active : ""}`}
                     >
-                        Make a submission
+                        Make a report
                     </Link>
                     <Link
                         href="/faq"

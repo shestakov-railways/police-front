@@ -1,7 +1,9 @@
 import {
     Header,
-    Footer
+    Footer,
+    Button
 } from "../../../components"
+import Link from 'next/link'
 import styles from "./style.module.scss"
 
 const Page = () => {
@@ -11,14 +13,25 @@ const Page = () => {
 
             <main>
                 <section className={styles.welcome_section}>
-                    <div className={styles.title}>
-                        Cyberpolice Department
-                    </div>
-                    <div className={styles.subtitle}>
-                        National Police
-                    </div>
-                    <div className={styles.slogan}>
-                        Proactive, innovative, responsibility
+                    <div>
+                        <div className={styles.title}>
+                            Cyber Police Department
+                        </div>
+                        <div className={styles.subtitle}>
+                            National Police
+                        </div>
+                        <div className={styles.slogan}>
+                            Proactivity. Serviceability. Responsibility.
+                        </div>
+                        <Link
+                            href="/form"
+                        >
+                            <Button
+                                className={styles.welcome_button}
+                            >
+                                Make a report
+                            </Button>
+                        </Link>
                     </div>
                 </section>
                 <section>
