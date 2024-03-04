@@ -1,28 +1,26 @@
 'use client'
 
-import {
-    Input,
-    Button
-} from "../../../components"
 import { useFieldArray } from "react-hook-form";
 import {
     useEffect
 } from "react"
 import {
-    NestedArray
-} from "../"
+    Button,
+    Input,
+    Select,
+} from "../../../components"
 
-const ThirdStep = ({
+const NestedArray = ({
     register,
     styles,
     errors,
-    setStep,
     setValue,
     control,
+    nestIndex,
 }) => {
-    const { fields, append, remove } = useFieldArray({
+    const { fields, remove, append } = useFieldArray({
         control,
-        name: "criminals"
+        name: `criminals[${nestIndex}].additional`
     });
 
     useEffect(() => {
@@ -33,30 +31,15 @@ const ThirdStep = ({
 
     return (
         <>
-            <div className={styles.title}>
-                Criminal information
-            </div>
-
-            <div
-                className={styles.back}
-                onClick={() => setStep(2)}
-            >
-                <img
-                    src="/icons/icon-chevrone-left.svg"
-                    className={styles.icon}
-                />
-                Go back
-            </div>
-
             {
                 fields.map((item, index) => (
                     <div
                         key={item.id}
                         className={styles.criminal_wrapper}
                     >
-                        <div className={`${styles.row} ${styles.criminal_row}`}>
+                        <div className={`${styles.row} ${styles.additional_row}`}>
                             <div className={styles.label}>
-                                Criminal #{index + 1}
+                                Additional information #{index + 1}
                             </div>
                             <Button
                                 onClick={() => remove(index)}
@@ -81,27 +64,48 @@ const ThirdStep = ({
                             <div className={styles.column}>
                                 <div className={styles.row}>
                                     <div className={styles.label}>
-                                        First name
+                                        Data type
                                     </div>
-                                    <Input
-                                        name={`criminals.${index}.first_name`}
-                                        placeholder="Enter first name"
-                                        className={styles.input}
+                                    <Select
+                                        name={`criminals[${nestIndex}].additional[${index}].type`}
+                                        placeholder="Data type"
                                         register={register}
-                                        displayErrors={true}
+                                        setValue={setValue}
                                         required={false}
-                                        errors={errors}
+                                        className={styles.select}
+                                        options={[
+                                            {
+                                                value: "email",
+                                                label: "Email"
+                                            },
+                                            {
+                                                value: "phone",
+                                                label: "Phone",
+                                            },
+                                            {
+                                                value: "url",
+                                                label: "Social media URL",
+                                            },
+                                            {
+                                                value: "ip_address",
+                                                label: "IP address",
+                                            },
+                                            {
+                                                value: "other",
+                                                label: "Other",
+                                            }
+                                        ]}
                                     />
                                 </div>
                             </div>
                             <div className={styles.column}>
                                 <div className={styles.row}>
                                     <div className={styles.label}>
-                                        Last name
+                                        Value
                                     </div>
                                     <Input
-                                        name={`criminals.${index}.last_name`}
-                                        placeholder="Enter last name"
+                                        name={`criminals[${nestIndex}].additional[${index}].value`}
+                                        placeholder="Enter information"
                                         className={styles.input}
                                         register={register}
                                         displayErrors={true}
@@ -110,46 +114,18 @@ const ThirdStep = ({
                                     />
                                 </div>
                             </div>
-                            <div className={styles.column}>
-                                <div className={styles.row}>
-                                    <div className={styles.label}>
-                                        Middle name
-                                    </div>
-                                    <Input
-                                        name={`criminals.${index}.middle_name`}
-                                        placeholder="Enter middle name"
-                                        className={styles.input}
-                                        register={register}
-                                        displayErrors={true}
-                                        required={false}
-                                        errors={errors}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className={styles.additional_wrapper}>
-                            <NestedArray
-                                nestIndex={index}
-                                register={register}
-                                control={register}
-                                errors={errors}
-                                setValue={setValue}
-                                styles={styles}
-                                {...{ control, register }}
-                            />
                         </div>
                     </div>
                 ))
             }
 
             <div
-                className={styles.add_button_wrapper}
+                className={styles.add_information_wrapper}
             >
                 <Button
                     onClick={() => append()}
                     style="outline"
-                    className={styles.add_button}
+                    className={styles.add_additional_information_button}
                 >
                     <div
                         className={styles.add_wrapper}
@@ -160,11 +136,11 @@ const ThirdStep = ({
                             className={styles.add_icon}
                         />
                     </div>
-                    Add criminal
+                    Add information
                 </Button>
             </div>
         </>
     )
 }
 
-export default ThirdStep;
+export default NestedArray;
