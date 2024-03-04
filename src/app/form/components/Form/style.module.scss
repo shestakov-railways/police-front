@@ -172,6 +172,47 @@
     object-fit: cover;
 }
 
-.remove_image{
+.remove_wrapper,
+.add_wrapper{
+    margin: 0 6px 0 0;
+}
 
+.remove_button,
+.add_button{
+    padding: 8px;
+    font-size: 14px;
+}
+
+.remove_button{
+    margin: 0 0 24px;
+}
+
+.remove_icon,
+.add_icon{
+    width: 20px;
+}
+
+.add_button{
+    margin: 24px 0 0;
+
+    &:hover img{
+        filter: invert(1);
+    }   
+}
+
+.criminal_wrapper{
+    & + &{
+        margin: 40px 0 0;
+    }
+}
+
+.criminal_row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.criminal_row .label{
+    font-size: 20px;
+    font-weight: 700;
 }
