@@ -15,10 +15,16 @@
 }
 
 .label{
-    margin: 0 0 8px;
-    font-size: 16px;
+    margin: 0 0 6px;
+    font-size: 14px;
     font-weight: 500;
     line-height: 24px;
+}
+
+.additional_row .label{
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
 }
 
 .row{
@@ -178,7 +184,8 @@
 }
 
 .remove_button,
-.add_button{
+.add_button,
+.add_additional_information_button{
     padding: 8px;
     font-size: 14px;
 }
@@ -192,9 +199,8 @@
     width: 20px;
 }
 
-.add_button{
-    margin: 24px 0 0;
-
+.add_button,
+.add_additional_information_button{
     &:hover img{
         filter: invert(1);
     }   
@@ -202,22 +208,34 @@
 
 .criminal_wrapper{
     & + &{
-        margin: 40px 0 0;
+        margin: 60px 0 0;
     }
 }
 
-.criminal_row{
+.criminal_row,
+.additional_row{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .criminal_row .label{
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
 }
 
 .add_button_wrapper{
+    margin: 40px 0 0;
     display: flex;
     justify-content: flex-end;
+}
+
+.add_information_wrapper{
+    margin: 24px 0 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.additional_wrapper{
+    margin: 24px 0 0;
 }
