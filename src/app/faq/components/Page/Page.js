@@ -9,7 +9,7 @@ const Page = () => {
             <Header />
 
             <main>
-                123
+                FAQ
             </main>
 
             <Footer />
