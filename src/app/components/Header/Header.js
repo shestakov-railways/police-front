@@ -4,14 +4,26 @@ import styles from "./style.module.scss"
 import Link from 'next/link'
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Cookie from 'js-cookie';
+import {
+    Button
+} from "../"
 
 const Header = () => {
     const pathname = usePathname();
     const [user, setUser] = useState(null);
+    const router = useRouter();
 
     useEffect(() => {
         setUser(JSON.parse(localStorage.getItem('user')));
-    });
+    }, []);
+
+    const onLogOut = () => {
+        localStorage.removeItem('user');
+        Cookie.remove('token');
+        router.push('/');
+    }
 
     return (
         <header
@@ -60,6 +72,13 @@ const Header = () => {
                 <div className={styles.user_email}>
                     { user?.email || "loading..." }
                 </div>
+
+                <Button
+                    className={styles.logout}
+                    onClick={onLogOut}
+                >
+                    Log out
+                </Button>
             </div>
         </header>
     )
