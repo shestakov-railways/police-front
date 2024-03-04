@@ -2,10 +2,12 @@
 
 import styles from "./style.module.scss"
 
-const Footer = () => {
+const Footer = ({
+    noBackground = false
+}) => {
     return (
         <footer
-            className={styles.block}
+            className={`${styles.block} ${noBackground ? styles.no_background : ""}`}
         >
             <div>
                 © { new Date().getFullYear() } Cyberpolice. All Rights Reserved.

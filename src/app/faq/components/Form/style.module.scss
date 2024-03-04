@@ -1,0 +1,30 @@
+.form{
+    margin: 50px auto 0;
+    padding: 32px;
+    backdrop-filter: blur(60px);
+    border-radius: 32px;
+    box-shadow: 0px 2px 10px 0px rgb(18 111 164 / 50%);
+    max-width: 600px;
+}
+
+.title{
+    margin: 0 0 24px;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 34px;
+}
+
+.textarea_wrapper{
+    margin: 0 0 24px;
+}
+
+.textarea{
+    min-height: 80px;
+    border-radius: 16px;
+    resize: none;
+}
+
+.button_wrapper{
+    display: flex;
+    justify-content: flex-end;
+}
