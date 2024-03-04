@@ -20,6 +20,7 @@ const Welcome = () => {
                     </div>
                     <Link
                         href="/form"
+                        className={styles.link}
                     >
                         <Button
                             className={styles.button}

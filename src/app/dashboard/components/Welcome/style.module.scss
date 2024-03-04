@@ -35,6 +35,7 @@
 
 .button{
     margin: 0 auto 60px;
+    border-radius: 24px;
 }
 
 .social_media{
@@ -53,4 +54,8 @@
     & + &{
         margin: 0 0 0 16px;
     }
+}
+
+.link{
+    text-decoration: none;
 }
