@@ -13,6 +13,9 @@ import {
     isValidEmail,
     isValidPhone
 } from "../../../utils/validation"
+import {
+    signUp
+} from "../../../services/sign-up"
 
 const Form = () => {
     const methods = useForm({
@@ -39,7 +42,7 @@ const Form = () => {
     });
 
     const onSubmit = async (data) => {
-        console.log(JSON.stringify(data));
+        signUp(data);
     }
 
     return (
@@ -98,6 +101,7 @@ const Form = () => {
                         <div>
                             <Input
                                 name="password"
+                                type="password"
                                 placeholder="Enter your password"
                                 className={styles.input}
                                 register={register}
@@ -118,6 +122,7 @@ const Form = () => {
                         <div>
                             <Input
                                 name="confirm_password"
+                                type="password"
                                 placeholder="Repeat your password"
                                 className={styles.input}
                                 register={register}
