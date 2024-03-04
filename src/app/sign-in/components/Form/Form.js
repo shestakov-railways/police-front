@@ -46,8 +46,9 @@ const Form = () => {
         setDisabled(true);
         try {
             const loginData = await signIn(data);
-            setError(null);
+            setError(null); 
             
+            localStorage.setItem('user', data);
             Cookie.set('token', loginData?.access_token, { expires: 3 });
     
             router.push('/dashboard');
