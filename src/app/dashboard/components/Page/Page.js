@@ -1,10 +1,11 @@
 import {
     Header,
-    Footer,
-    Button
+    Footer
 } from "../../../components"
-import Link from 'next/link'
-import styles from "./style.module.scss"
+import {
+    Welcome,
+    News 
+} from "../"
 
 const Page = () => {
     return (
@@ -12,31 +13,11 @@ const Page = () => {
             <Header />
 
             <main>
-                <section className={styles.welcome_section}>
-                    <div>
-                        <div className={styles.title}>
-                            Cyber Police Department
-                        </div>
-                        <div className={styles.subtitle}>
-                            National Police
-                        </div>
-                        <div className={styles.slogan}>
-                            Proactivity. Serviceability. Responsibility.
-                        </div>
-                        <Link
-                            href="/form"
-                        >
-                            <Button
-                                className={styles.welcome_button}
-                            >
-                                Make a report
-                            </Button>
-                        </Link>
-                    </div>
-                </section>
-                <section>
-                    124
-                </section>
+                
+                <Welcome />
+
+                <News />
+                
             </main>
 
             <Footer />
