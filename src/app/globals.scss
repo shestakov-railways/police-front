@@ -36,3 +36,8 @@ main{
 div.swiper-slide {
   height: auto;
 }
+
+div.swiper {
+  max-width: 100%;
+  overflow: hidden;
+}
