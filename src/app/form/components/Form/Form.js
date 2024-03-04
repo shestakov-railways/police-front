@@ -9,16 +9,17 @@ import {
     useEffect
 } from "react"
 import {
-    Input,
     Button
 } from "../../../components"
 import Cookie from 'js-cookie';
+
 import {
-    isValidEmail,
-    isValidPhone
-} from "../../../utils/validation"
+    FirstStep,
+    SecondStep,
+} from "../"
 
 const Form = () => {
+    const [step, setStep] = useState(1);
     const [user, setUser] = useState(null);
     const [disabled, setDisabled] = useState(false);
 
@@ -29,13 +30,18 @@ const Form = () => {
     const methods = useForm({
         mode: "onChange",
         defaultValues: {
-            text: ""
+            first_name: "",
+            last_name: "",
+            middle_name: "",
+            phone: "",
+            email: "",
         }
     });
 
     const {
         register,
         handleSubmit,
+        setValue,
         formState: {
             errors
         }
@@ -51,6 +57,14 @@ const Form = () => {
         setDisabled(false);
     }
 
+    const onButtonClick = () => {
+        if (step === 1) {
+            setStep(2);
+        }else{
+            handleSubmit(onSubmit)();
+        }
+    }
+
     return (
         <FormProvider {...methods}>
             <form
@@ -58,104 +72,30 @@ const Form = () => {
                 onSubmit={handleSubmit(onSubmit)}
                 autoComplete="off"
             >
-                <div className={styles.title}>
-                    Personal information
-                </div>
-
-                <div className={styles.columns}>
-                    <div className={styles.column}>
-                        <div className={styles.row}>
-                            <div className={styles.label}>
-                                First name <span className={styles.required}>*</span>
-                            </div>
-                            <Input
-                                name="first_name"
-                                placeholder="Enter your first name"
-                                className={styles.input}
-                                register={register}
-                                displayErrors={true}
-                                required={true}
-                                errors={errors}
-                            />
-                        </div>
-
-                        <div className={styles.row}>
-                            <div className={styles.label}>
-                                Middle name <span className={styles.required}>*</span>
-                            </div>
-                            <Input
-                                name="middle_name"
-                                placeholder="Enter your middle name"
-                                className={styles.input}
-                                register={register}
-                                displayErrors={true}
-                                required={true}
-                                errors={errors}
-                            />
-                        </div>
-
-                        <div className={styles.row}>
-                            <div className={styles.label}>
-                                Email <span className={styles.required}>*</span>
-                            </div>
-                            <div>
-                                <Input
-                                    name="email"
-                                    placeholder="Enter your email"
-                                    className={styles.input}
-                                    register={register}
-                                    displayErrors={true}
-                                    required={true}
-                                    errors={errors}
-                                    validation={(v) => isValidEmail(v)}
-                                />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className={styles.column}>
-                        <div className={styles.row}>
-                            <div className={styles.label}>
-                                Last name <span className={styles.required}>*</span>
-                            </div>
-                            <Input
-                                name="last_name"
-                                placeholder="Enter your last name"
-                                className={styles.input}
-                                register={register}
-                                displayErrors={true}
-                                required={true}
-                                errors={errors}
-                            />
-                        </div>
-
-                        <div className={styles.row}>
-                            <div className={styles.label}>
-                                Phone <span className={styles.required}>*</span>
-                            </div>
-                            <div>
-                                <Input
-                                    name="phone"
-                                    placeholder="Enter your phone"
-                                    className={styles.input}
-                                    register={register}
-                                    displayErrors={true}
-                                    required={true}
-                                    errors={errors}
-                                    validation={(v) => isValidPhone(v)}
-                                    maxLength={13}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {
+                    step === 1
+                    ?
+                    <FirstStep
+                        register={register}
+                        styles={styles}
+                        errors={errors}
+                    />
+                    :
+                    <SecondStep
+                        register={register}
+                        styles={styles}
+                        errors={errors}
+                        setStep={setStep}
+                        setValue={setValue}
+                    />
+                }
                 
                 <div className={styles.button_wrapper}>
                     <Button
-                        type="submit"
                         className={styles.button}
+                        onClick={onButtonClick}
                     >
-                        Proceed
+                        { step === 1 ? "Proceed" : "Submit report" }
                     </Button>
                 </div>
             </form>

@@ -57,3 +57,27 @@
 .required{
     color: #fe3e3e;
 }
+
+.back{
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 42px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.icon{
+    width: 16px;
+    margin: 0 4px 0 0;
+}
+
+.textarea{
+    min-height: 80px;
+    border-radius: 6px;
+    resize: none;
+}

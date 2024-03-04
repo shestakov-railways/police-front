@@ -12,9 +12,9 @@
     font-size: 16px;
     line-height: 24px;
     padding: 12px 52px 12px 16px;
-    border-radius: 4px;
+    border-radius: 6px;
     border: 1px solid var(--light-version-border-grey, #D9E5E5);
-    background: url(/icon-chevrone-down-gray.svg) no-repeat calc(100% - 16px) 50%;
+    background: #fff url(/icons/icon-chevrone-down-gray.svg) no-repeat calc(100% - 16px) 50%;
     cursor: pointer;
 }
 
@@ -23,6 +23,7 @@
     top: calc(100% + 4px);
     left: 0;
     min-width: 100%;
+    box-sizing: border-box;
     max-width: 350px;
     opacity: 0;
     pointer-events: none;
@@ -30,7 +31,7 @@
     background: #fff;
     border: 1px solid var(--light-version-border-grey, #D9E5E5);
     padding: 12px 0 12px 8px;
-    border-radius: 4px;
+    border-radius: 6px;
     z-index: 99;
 }
 
@@ -49,8 +50,8 @@
 .select_options_list::-webkit-scrollbar-track{
     border-radius: 2px;
     background: #D9E5E5;
-    border-left: 1px solid var(--light-version-light-blue-background, #F2FFFF);
-    border-right: 1px solid var(--light-version-light-blue-background, #F2FFFF);
+    border-left: 1px solid var(--light-version-light-blue-background, #f2f8ff);
+    border-right: 1px solid var(--light-version-light-blue-background, #f2f8ff);
     width: 3px;
 }
 
@@ -60,7 +61,7 @@
 }
 
 .select_options_list::-webkit-scrollbar-thumb{
-    background: var(--light-version-main-green, #12A47F);
+    background: var(--light-version-main-green, #c8e0ff);
     border-radius: 2px;
     width: 3px;
 }
@@ -88,6 +89,6 @@
     }
 
     &:hover{
-        background: var(--light-version-light-blue-background, #F2FFFF);
+        background: #f2f8ff;
     }
 }
