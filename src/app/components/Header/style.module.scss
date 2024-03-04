@@ -4,23 +4,23 @@
 
     &:before{
         content: "";
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         background: url(/bg.svg) no-repeat center/cover;
-        min-height: 860px;
+        min-height: 1160px;
         z-index: -1;
     }
 
     &:after{
         content: "";
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         background: url(/noize.png) no-repeat center/cover;
-        min-height: 860px;
+        min-height: 1160px;
         z-index: -1;
         opacity: .1;
     }

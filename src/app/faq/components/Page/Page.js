@@ -2,6 +2,11 @@ import {
     Header,
     Footer
 } from "../../../components"
+import styles from "./style.module.scss"
+import {
+    FAQ,
+    Form
+} from "../";
 
 const Page = () => {
     return (
@@ -9,10 +14,16 @@ const Page = () => {
             <Header />
 
             <main>
-                FAQ
+                <section className={styles.section}>
+                    <FAQ />
+                    
+                    <Form />
+                </section>
             </main>
 
-            <Footer />
+            <Footer
+                noBackground={true}
+            />
         </>
     )
 }

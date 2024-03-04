@@ -3,6 +3,7 @@
     background: #E1E8FF;
     padding: 72px 0;
     min-height: 100vh;
+    min-height: min(100vh, 800px);
     box-sizing: border-box;
 
     &:before{
