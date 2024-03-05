@@ -13,7 +13,7 @@ const Question = ({
     return (
         <div className={styles.block}>
             <div
-                className={styles.question}
+                className={`${styles.question} ${opened ? styles.question_opened : ""}`}
                 onClick={toggleOpened}
             >
                 { question }
