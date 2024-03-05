@@ -12,12 +12,24 @@ import {
     Button
 } from "../../../components"
 import Cookie from 'js-cookie';
+import {
+    sendReport
+} from "../../../services/report"
 
 import {
     FirstStep,
     SecondStep,
     ThirdStep,
 } from "../"
+
+function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+        reader.readAsDataURL(file);
+    });
+}
 
 const Form = () => {
     const [submitted, setSubmitted] = useState(false);
@@ -55,10 +67,18 @@ const Form = () => {
 
     const onSubmit = async (data) => {
         setDisabled(true);
+
+        const imagesBase64 = await Promise.all(data.images.map(file => fileToBase64(file)));
+        
+        const updatedData = {
+            ...data,
+            images: imagesBase64
+        };
+
         try {
-            console.log(123, data);
-            setSubmitted(true);
             const token = Cookie.get('token');
+            const success = await sendReport(token, updatedData);
+            if(success) setSubmitted(true);
         } catch (error) {
             alert(error?.message);
         }

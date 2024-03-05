@@ -70,7 +70,10 @@ const Header = () => {
                         />
                     </div>
 
-                    <div className={styles.user_email}>
+                    <div
+                        className={styles.user_email}
+                        title={ user?.email || "loading..." }
+                    >
                         { user?.email || "loading..." }
                     </div>
 
