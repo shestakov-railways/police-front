@@ -12,7 +12,8 @@ import {
     isValidIP
 } from "../../../utils/validation"
 import {
-    useEffect
+    useEffect,
+    useState
 } from "react"
 
 const AdditionalItem = ({
@@ -28,7 +29,7 @@ const AdditionalItem = ({
     trigger,
 }) => {
     const fieldName = `criminals[${nestIndex}].additional[${index}].value`;
-    const type = getValues(`criminals[${nestIndex}].additional[${index}].type`);
+    const [type, setType] = useState(getValues(`criminals[${nestIndex}].additional[${index}].type`));
 
     const validation = (v) => {
         switch(type){
@@ -41,7 +42,7 @@ const AdditionalItem = ({
 
     useEffect(() => {
         if(getValues(fieldName)) trigger(fieldName);
-      }, [type]);
+    }, [type]);
 
     return (
         <div
@@ -84,6 +85,9 @@ const AdditionalItem = ({
                             setValue={setValue}
                             required={false}
                             className={styles.select}
+                            onClick={() => {
+                                setType(getValues(`criminals[${nestIndex}].additional[${index}].type`));
+                            }}
                             options={[
                                 {
                                     value: "email",
@@ -123,6 +127,7 @@ const AdditionalItem = ({
                             required={false}
                             errors={errors}
                             validation={validation}
+                            maxLength={type === "phone" ? 13 : undefined} 
                         />
                     </div>
                 </div>
