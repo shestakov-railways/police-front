@@ -11,6 +11,8 @@ const isValidEmail = (value = "") => {
 };
 
 const isValidPhone = (value = "") => {
+    if(value.length > 13) return "Incorrect phone number length";
+
     if (value.startsWith('+')) {
         return value == "" ? true : isValidPhoneNumber(value, 'UA') || "Invalid phone number, use format +[country code][phone number]";
     } else {
