@@ -15,6 +15,11 @@
     display: flex;
     align-items: center;
     user-select: none;
+    transition: background .3s;
+}
+
+.question_opened{
+    background: url(/icons/icon-minus.svg) no-repeat left center;
 }
 
 .text{
