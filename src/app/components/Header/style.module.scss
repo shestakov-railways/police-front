@@ -13,9 +13,9 @@
         z-index: -1;
 
         @media (max-width: 768px){
-            min-height: calc(100vh - 232px);
+            min-height: 100vh;
             background-position: top left;
-            background-size: contain;
+            background-size: auto;
         }
     }
 
@@ -31,9 +31,9 @@
         opacity: .1;
 
         @media (max-width: 768px){
-            min-height: calc(100vh - 232px);
+            min-height: 100vh;
             background-position: top left;
-            background-size: contain;
+            background-size: auto;
         }
     }
 }
