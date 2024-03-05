@@ -61,6 +61,30 @@
 }
 
 .row{
+    @media (max-width: 768px){
+        width: 100%;
+
+        &[data-row="first"]{
+            order: 1;
+        }
+
+        &[data-row="second"]{
+            order: 2;
+        }
+
+        &[data-row="third"]{
+            order: 3;
+        }
+
+        &[data-row="fourth"]{
+            order: 4;
+        }
+
+        &[data-row="fifth"]{
+            order: 5;
+        }
+    }
+
     & + &{
         margin: 24px 0 0;
     }
@@ -94,13 +118,16 @@
 
     @media (max-width: 768px){
         flex-basis: 100%;
+        display: contents;
     }
 
     & + &{
         margin: 0 0 0 40px;
 
         @media (max-width: 768px){
-            margin: 24px 0 0;
+            > div:first-child{
+                margin: 24px 0 0;
+            }
         }
     }
 }
