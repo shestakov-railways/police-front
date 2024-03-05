@@ -16,6 +16,10 @@
     align-items: center;
     user-select: none;
     transition: background .3s;
+
+    @media (max-width: 768px){
+        padding: 10px 0 10px 40px;
+    }
 }
 
 .question_opened{
