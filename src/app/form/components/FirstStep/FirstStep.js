@@ -19,7 +19,7 @@ const FirstStep = ({
 
             <div className={styles.columns}>
                 <div className={styles.column}>
-                    <div className={styles.row}>
+                    <div className={styles.row} data-row="first">
                         <div className={styles.label}>
                             First name <span className={styles.required}>*</span>
                         </div>
@@ -34,7 +34,7 @@ const FirstStep = ({
                         />
                     </div>
 
-                    <div className={styles.row}>
+                    <div className={styles.row} data-row="third">
                         <div className={styles.label}>
                             Middle name <span className={styles.required}>*</span>
                         </div>
@@ -49,7 +49,7 @@ const FirstStep = ({
                         />
                     </div>
 
-                    <div className={styles.row}>
+                    <div className={styles.row} data-row="fourth">
                         <div className={styles.label}>
                             Email <span className={styles.required}>*</span>
                         </div>
@@ -69,7 +69,7 @@ const FirstStep = ({
                 </div>
 
                 <div className={styles.column}>
-                    <div className={styles.row}>
+                    <div className={styles.row} data-row="second">
                         <div className={styles.label}>
                             Last name <span className={styles.required}>*</span>
                         </div>
@@ -84,7 +84,7 @@ const FirstStep = ({
                         />
                     </div>
 
-                    <div className={styles.row}>
+                    <div className={styles.row} data-row="fifth">
                         <div className={styles.label}>
                             Phone <span className={styles.required}>*</span>
                         </div>
