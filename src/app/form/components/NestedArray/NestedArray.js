@@ -6,9 +6,10 @@ import {
 } from "react"
 import {
     Button,
-    Input,
-    Select,
 } from "../../../components"
+import {
+    AdditionalItem
+} from "../"
 
 const NestedArray = ({
     register,
@@ -17,6 +18,8 @@ const NestedArray = ({
     setValue,
     control,
     nestIndex,
+    getValues,
+    trigger,
 }) => {
     const { fields, remove, append } = useFieldArray({
         control,
@@ -25,7 +28,12 @@ const NestedArray = ({
 
     useEffect(() => {
         if(fields.length == 0){
-            append({});
+            append(
+                {},
+                {
+                    shouldFocus: false,
+                }
+            );
         }
     }, []);
 
@@ -33,89 +41,19 @@ const NestedArray = ({
         <>
             {
                 fields.map((item, index) => (
-                    <div
-                        key={item.id}
-                        className={styles.criminal_wrapper}
-                    >
-                        <div className={`${styles.row} ${styles.additional_row}`}>
-                            <div className={styles.label}>
-                                Additional information #{index + 1}
-                            </div>
-                            <Button
-                                onClick={() => remove(index)}
-                                style="outline"
-                                className={styles.remove_button}
-                            >
-                                <div
-                                    className={styles.remove_wrapper}
-                                >
-                                    <img
-                                        src="/icons/icon-delete.svg"
-                                        alt=""
-                                        className={styles.remove_icon}
-                                    />
-                                </div>
-                                Remove
-                            </Button>
-                        </div>
-                        <div
-                            className={styles.columns}
-                        >
-                            <div className={styles.column}>
-                                <div className={styles.row}>
-                                    <div className={styles.label}>
-                                        Data type
-                                    </div>
-                                    <Select
-                                        name={`criminals[${nestIndex}].additional[${index}].type`}
-                                        placeholder="Data type"
-                                        register={register}
-                                        setValue={setValue}
-                                        required={false}
-                                        className={styles.select}
-                                        options={[
-                                            {
-                                                value: "email",
-                                                label: "Email"
-                                            },
-                                            {
-                                                value: "phone",
-                                                label: "Phone",
-                                            },
-                                            {
-                                                value: "url",
-                                                label: "Social media URL",
-                                            },
-                                            {
-                                                value: "ip_address",
-                                                label: "IP address",
-                                            },
-                                            {
-                                                value: "other",
-                                                label: "Other",
-                                            }
-                                        ]}
-                                    />
-                                </div>
-                            </div>
-                            <div className={styles.column}>
-                                <div className={styles.row}>
-                                    <div className={styles.label}>
-                                        Value
-                                    </div>
-                                    <Input
-                                        name={`criminals[${nestIndex}].additional[${index}].value`}
-                                        placeholder="Enter information"
-                                        className={styles.input}
-                                        register={register}
-                                        displayErrors={true}
-                                        required={false}
-                                        errors={errors}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <AdditionalItem
+                        key={index}
+                        item={item}
+                        index={index}
+                        register={register}
+                        styles={styles}
+                        errors={errors}
+                        setValue={setValue}
+                        nestIndex={nestIndex}
+                        getValues={getValues}
+                        remove={remove}
+                        trigger={trigger}
+                    />
                 ))
             }
 

@@ -4,6 +4,7 @@ import FirstStep from "./FirstStep/FirstStep"
 import SecondStep from "./SecondStep/SecondStep"
 import ThirdStep from "./ThirdStep/ThirdStep"
 import NestedArray from "./NestedArray/NestedArray"
+import AdditionalItem from "./AdditionalItem/AdditionalItem"
 
 export {
     Page,
@@ -12,4 +13,5 @@ export {
     SecondStep,
     ThirdStep,
     NestedArray,
+    AdditionalItem,
 }
