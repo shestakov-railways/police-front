@@ -20,7 +20,7 @@ import {
 } from "../"
 
 const Form = () => {
-    const [step, setStep] = useState(1);
+    const [submitted, setSubmitted] = useState(false);
     const [user, setUser] = useState(null);
     const [disabled, setDisabled] = useState(false);
 
@@ -44,14 +44,20 @@ const Form = () => {
         handleSubmit,
         setValue,
         control,
+        getValues,
+        trigger,
+        reset,
         formState: {
-            errors
+            errors,
+            isValid
         }
     } = methods;
 
     const onSubmit = async (data) => {
         setDisabled(true);
         try {
+            console.log(123, data);
+            setSubmitted(true);
             const token = Cookie.get('token');
         } catch (error) {
             alert(error?.message);
@@ -59,12 +65,9 @@ const Form = () => {
         setDisabled(false);
     }
 
-    const onButtonClick = () => {
-        if (step != 3) {
-            setStep(step + 1);
-        }else{
-            handleSubmit(onSubmit)();
-        }
+    const reSubmit = (e) => {
+        reset();
+        setSubmitted(false);
     }
 
     return (
@@ -75,49 +78,70 @@ const Form = () => {
                 autoComplete="off"
             >
                 {
-                    step == 1
+                    submitted === false
                     ?
-                        <FirstStep
-                            register={register}
-                            styles={styles}
-                            errors={errors}
-                        />
+                    <>
+                        <div className={styles.form_block}>
+                            <FirstStep
+                                register={register}
+                                styles={styles}
+                                errors={errors}
+                            />
+                        </div>
+
+                        <div className={styles.form_block}>
+                            <SecondStep
+                                register={register}
+                                styles={styles}
+                                errors={errors}
+                                setValue={setValue}
+                            />
+                        </div>
+
+                        <div className={styles.form_block}>
+                            <ThirdStep
+                                register={register}
+                                styles={styles}
+                                errors={errors}
+                                setValue={setValue}
+                                control={control}
+                                getValues={getValues}
+                                trigger={trigger}
+                            />
+                        </div>
+
+                        <div className={styles.button_wrapper}>
+                            <Button
+                                type="submit"
+                                className={styles.button}
+                                disabled={disabled}
+                            >
+                                Submit report
+                            </Button>
+                        </div>
+                    </>
                     : null
                 }
+
                 {
-                    step == 2
+                    submitted === true
                     ?
-                        <SecondStep
-                            register={register}
-                            styles={styles}
-                            errors={errors}
-                            setStep={setStep}
-                            setValue={setValue}
-                        />
+                    <div className={styles.form_block}>
+                        <div className={`${styles.title} ${styles.report_submitted_title}`}>
+                            Report submitted successfully
+                        </div>
+
+                        <div className={styles.button_wrapper}>
+                            <Button
+                                onClick={reSubmit}
+                                className={styles.button}
+                            >
+                                Resubmit
+                            </Button>
+                        </div>
+                    </div>
                     : null
                 }
-                {
-                    step == 3
-                    ?
-                        <ThirdStep
-                            register={register}
-                            styles={styles}
-                            errors={errors}
-                            setStep={setStep}
-                            setValue={setValue}
-                            control={control}
-                        />
-                    : null
-                }
-                
-                <div className={styles.button_wrapper}>
-                    <Button
-                        className={styles.button}
-                        onClick={onButtonClick}
-                    >
-                        { step != 3 ? "Proceed" : "Submit report" }
-                    </Button>
-                </div>
             </form>
         </FormProvider>
     )

@@ -16,9 +16,10 @@ const ThirdStep = ({
     register,
     styles,
     errors,
-    setStep,
     setValue,
     control,
+    getValues,
+    trigger,
 }) => {
     const { fields, append, remove } = useFieldArray({
         control,
@@ -27,7 +28,12 @@ const ThirdStep = ({
 
     useEffect(() => {
         if(fields.length == 0){
-            append({});
+            append(
+                {},
+                {
+                    shouldFocus: false,
+                }
+            );
         }
     }, []);
 
@@ -35,17 +41,6 @@ const ThirdStep = ({
         <>
             <div className={styles.title}>
                 Criminal information
-            </div>
-
-            <div
-                className={styles.back}
-                onClick={() => setStep(2)}
-            >
-                <img
-                    src="/icons/icon-chevrone-left.svg"
-                    className={styles.icon}
-                />
-                Go back
             </div>
 
             {
@@ -136,6 +131,8 @@ const ThirdStep = ({
                                 errors={errors}
                                 setValue={setValue}
                                 styles={styles}
+                                getValues={getValues}
+                                trigger={trigger}
                                 {...{ control, register }}
                             />
                         </div>

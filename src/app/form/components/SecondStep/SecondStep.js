@@ -6,8 +6,9 @@ import {
 } from "../../../components"
 import {
     useState,
-    useRef
-} from "react"
+    useRef,
+    useEffect,
+} from "react";
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -16,44 +17,37 @@ const SecondStep = ({
     register,
     styles,
     errors,
-    setStep,
     setValue,
 }) => {
     const swiperRef = useRef();
+    const [files, setFiles] = useState([]);
     const [images, setImages] = useState([]);
 
     const handleFiles = (event) => {
-        const newFiles = Array.from(event.target.files);
-        const filteredNewFiles = newFiles.filter(file => file.size <= 1048576);
+        const newFiles = Array.from(event.target.files).filter(file => file.size <= 1048576);
     
-        const newUrls = filteredNewFiles.map(file => URL.createObjectURL(file));
-    
-        setImages(prevImages => {
-            const updatedImages = [...prevImages, ...newUrls];
-            
-            return updatedImages.slice(0, 10);
+        setFiles(prevFiles => {
+            const updatedFiles = [...prevFiles, ...newFiles].slice(0, 10);
+            setValue('images', updatedFiles);
+            return updatedFiles;
         });
+    
+        const newUrls = newFiles.map(file => URL.createObjectURL(file));
+        setImages(prevImages => [...prevImages, ...newUrls].slice(0, 10));
     };
 
     const handleRemoveImage = (indexToRemove) => {
         setImages(prevImages => prevImages.filter((_, index) => index !== indexToRemove));
     };
 
+    useEffect(() => {
+        register('images');
+    }, [register]);
+
     return (
         <>
             <div className={styles.title}>
                 Accident information
-            </div>
-
-            <div
-                className={styles.back}
-                onClick={() => setStep(1)}
-            >
-                <img
-                    src="/icons/icon-chevrone-left.svg"
-                    className={styles.icon}
-                />
-                Go back
             </div>
 
             <div className={styles.row}>

@@ -1,4 +1,5 @@
 import styles from "./style.module.scss";
+import { ErrorMessage } from '@hookform/error-message';
 
 const Input = ({
     name,
@@ -43,15 +44,15 @@ const Input = ({
                     icon ? icon : <></>
                 }
             </div>
-
+            
             {
                 displayErrors
                 &&
-                errors[name]
-                &&
-                <span className="error-message">
-                    { errors[name]?.message }
-                </span>
+                <ErrorMessage
+                    errors={errors}
+                    name={name}
+                    render={({ message }) => <span className="error-message">{ message }</span>}
+                />
             }
         </>
     )
