@@ -68,12 +68,12 @@ const Form = () => {
     const onSubmit = async (data) => {
         setDisabled(true);
 
-        const imagesBase64 = await Promise.all(data.images.map(file => fileToBase64(file)));
+        const imagesBase64 = data.images?.length ? await Promise.all(data.images.map(file => fileToBase64(file))) : [];
         
         const updatedData = {
             ...data,
             images: imagesBase64
-        };
+        }
 
         try {
             const token = Cookie.get('token');
