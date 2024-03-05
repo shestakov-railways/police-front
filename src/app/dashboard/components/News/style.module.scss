@@ -6,6 +6,11 @@
     min-height: min(100vh, 800px);
     box-sizing: border-box;
 
+    @media (max-width: 768px){
+        padding: 30px 18px;
+        min-height: auto;
+    }
+
     &:before{
         content: "";
         position: absolute;
@@ -37,6 +42,11 @@
     font-size: 52px;
     font-weight: 700;
     line-height: 60px;
+
+    @media (max-width: 768px){
+        font-size: 32px;
+        line-height: 42px;
+    }
 }
 
 .icon{
@@ -113,6 +123,10 @@
     width: 24px;
     height: 24px;
     cursor: pointer;
+
+    @media (max-width: 768px){
+        display: none;
+    }
 
     & + &{
         margin: 0 0 0 16px;
