@@ -5,6 +5,10 @@
     padding: 24px;
     background: #ccd3ff;
 
+    @media (max-width: 768px){
+        padding: 18px;
+    }
+
     > div:first-child{
         margin: 0 0 4px;
     }
